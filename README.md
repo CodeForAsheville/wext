@@ -1,11 +1,10 @@
-# WEXT
+# WExT
 ### WNC Expungement Tool
 
 A project for creating petition forms based on the work of [Durham Expunction and Restoration (DEAR)](https://www.deardurham.org)
 .
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg)](https://github.com/pydanny/cookiecutter-django/)
-[![Build Status](https://travis-ci.org/deardurham/dear-petition.svg?branch=master)](https://travis-ci.org/deardurham/dear-petition)
 [![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 ## 🚀 Docker Quick Start (recommended)
@@ -20,7 +19,7 @@ docker-compose run --rm django python manage.py createsuperuser
 
 ## Frontend Development
 
-The user facing side of the DEAR Petition Generator is a React single page app (SPA).
+The user facing side of the WExT Petition Generator is a React single page app (SPA).
 
 
 ### 🚀 Quick Setup
@@ -143,7 +142,7 @@ bash-3.2$
 To delete the pipenv environment:
 ```
 bash-3.2$ pipenv --rm
-Removing virtualenv (/Users/user/.local/share/virtualenvs/dear-petition-fJpn7FEC)…
+Removing virtualenv (/Users/user/.local/share/virtualenvs/wext-fJpn7FEC)…
 ```
 
 
