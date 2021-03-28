@@ -1,7 +1,8 @@
-# DEAR Petition
+# WEXT
+### WNC Expungement Tool
 
-A [Durham Expunction and Restoration (DEAR)](https://www.deardurham.org)
-project for creating petition forms.
+A project for creating petition forms based on the work of [Durham Expunction and Restoration (DEAR)](https://www.deardurham.org)
+.
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg)](https://github.com/pydanny/cookiecutter-django/)
 [![Build Status](https://travis-ci.org/deardurham/dear-petition.svg?branch=master)](https://travis-ci.org/deardurham/dear-petition)
@@ -10,8 +11,8 @@ project for creating petition forms.
 ## 🚀 Docker Quick Start (recommended)
 
 ```bash
-git clone git@github.com:deardurham/dear-petition.git
-cd dear-petition
+git clone git@github.com:codeforasheville/wext.git
+cd wext
 docker-compose up -d
 docker-compose run --rm django python manage.py createsuperuser
 ```
@@ -41,7 +42,7 @@ When the frontend is run using docker, the `API_PROXY` environment variable is s
 You can override the this proxy url by setting `OVERRIDE_API_PROXY`:
 
 ```bash
-OVERRIDE_API_PROXY=https://dear-petition-staging.herokuapp.com/ docker-compose up -d
+OVERRIDE_API_PROXY=https://TODO.herokuapp.com/ docker-compose up -d
 ```
 
 #### Local Frontend
@@ -91,9 +92,9 @@ To restore a database dump, you can run:
 
 ```sh
 docker-compose run --rm django sh
-$ dropdb dear_petition
-$ createdb dear_petition
-$ pg_restore -Ox -d dear_petition latest.dump
+$ dropdb wext
+$ createdb wext
+$ pg_restore -Ox -d wext latest.dump
 $ python manage.py migrate
 ```
 
@@ -134,7 +135,7 @@ python3 setup-project.py <path-to-ciprs-reader>
 Additional Pipenv Notes:
 To exit the pip environment:
 ```
-(dear-petition) bash-3.2$ exit
+(wext) bash-3.2$ exit
 exit
 bash-3.2$
 ```
@@ -163,7 +164,7 @@ how the site behaves for both kinds of users.
 
 Running type checks with mypy:
 
-    $ mypy dear_petition
+    $ mypy wext
 
 
 ### Test coverage
@@ -186,6 +187,6 @@ coverage report:
     $ pytest
 
 
-### Sign up for Sentry
+### ~~Sign up for Sentry~~
 
-The dear-petition project is now on Sentry. Visit sentry.io and make an account or sign in with Github. Reach out to an existing member for an invite to the project.
+~~The wext project is now on Sentry. Visit sentry.io and make an account or sign in with Github. Reach out to an existing member for an invite to the project.~~
