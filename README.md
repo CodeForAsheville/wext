@@ -91,9 +91,9 @@ To restore a database dump, you can run:
 
 ```sh
 docker-compose run --rm django sh
-$ dropdb wext
-$ createdb wext
-$ pg_restore -Ox -d wext latest.dump
+$ dropdb dear_petition
+$ createdb dear_petition
+$ pg_restore -Ox -d dear_petition latest.dump
 $ python manage.py migrate
 ```
 
@@ -163,7 +163,7 @@ how the site behaves for both kinds of users.
 
 Running type checks with mypy:
 
-    $ mypy wext
+    $ mypy dear_petition
 
 
 ### Test coverage
