@@ -24,6 +24,12 @@ The user facing side of the WExT Petition Generator is a React single page app (
 
 ### 🚀 Quick Setup
 
+#### Docker
+
+After running `docker-compose up -d`, the frontend site is available at `localhost:3000`.
+
+#### Local Frontend
+
 ```bash
 npm i
 npm run start
