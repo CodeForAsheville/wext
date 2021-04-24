@@ -8,7 +8,7 @@ import {
   PageLogo,
   PageContentWrapper
 } from './PageBase.styled';
-import DEAR_Logo from '../../assets/img/DEAR_logo.png';
+import WEXT_Logo from '../../assets/img/WEXT_logo.jpg';
 import { smallerThanTabletLandscape } from '../../styles/media';
 
 // Ajax
@@ -56,7 +56,7 @@ function PageBase({ children, className, ...props }) {
     <PageBaseStyled {...props}>
       <PageHeader>
           <LogoLink href='/'>
-            <PageLogo src={DEAR_Logo} alt="DEAR logo" />
+            <PageLogo src={WEXT_Logo} alt="WNC Expungement Tool logo" />
           </LogoLink>
           <LinksGroup>
             {localStorage.getItem(USER) && <Link href='/'>New Petition</Link>}
