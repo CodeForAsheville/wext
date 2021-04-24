@@ -13,7 +13,7 @@ import {
 import { Button } from '../../elements/Button';
 
 // Assets
-import dearLogo from '../../../assets/img/DEAR_logo.png';
+import WEXT_Logo from '../../../assets/img/WEXT_logo.jpg';
 
 // Routing
 import { Redirect, useHistory } from 'react-router-dom';
@@ -61,7 +61,7 @@ function Login() {
   return (
     <LoginPageStyled>
       <LoginSplash>
-        <SplashLogo src={dearLogo} alt="DEAR logo" />
+        <SplashLogo src={WEXT_Logo} alt="WNC Expungement Tool logo" />
       </LoginSplash>
       <LoginForm onSubmit={handleLogin}>
         <InputStyled
