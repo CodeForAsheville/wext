@@ -22,9 +22,6 @@ const DEFAULT_STATE_LABEL = { label: 'NC', value: 'NC' };
 
 const REQUIRED_FIELDS = [
   'name',
-  'ssn',
-  'licenseNumber',
-  'licenseState',
   'address1',
   'city',
   'state',
@@ -81,14 +78,11 @@ const InputSection = ({ children, label }) => (
 
 function GenerationPage() {
   const { batchId } = useParams();
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
   const [batch, setBatch] = useState();
   const [attorney, setAttorney] = useState('');
   const [petitionerData, setPetitionerData] = useState({
     name: '',
-    ssn: '',
-    licenseNumber: '',
-    licenseState: DEFAULT_STATE_LABEL,
     address1: '',
     address2: '',
     city: '',
@@ -98,17 +92,25 @@ function GenerationPage() {
   const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {
-    setLoading(true);
-    Axios.get(`/batch/${batchId}/`)
-      .then(({ data }) => {
-        setBatch(data);
-        setPetitionerData(prev => ({ ...prev, name: data?.label }));
-        setLoading(false);
-      })
-      .catch(error => {
+    let isMounted = true;
+    (async function() {
+      try {
+        const { data } = await Axios.get(`/batch/${batchId}/`);
+        if (isMounted) {
+          setBatch(data);
+          setPetitionerData(prev => ({ ...prev, name: data?.label }));
+          setLoading(false);
+        }
+      } catch (error) {
         console.error(error);
-        setLoading(false);
-      });
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    })();
+    return () => {
+      isMounted = false;
+    };
   }, [batchId]);
 
   const validateInput = () => {
@@ -127,7 +129,9 @@ function GenerationPage() {
   };
 
   const clearError = (key) => {
-    formErrors[key] && setFormErrors((oldErrors) => ({ ...oldErrors, [key]: [] }));
+    if (formErrors[key]) {
+      setFormErrors((oldErrors) => ({ ...oldErrors, [key]: [] }))
+    }
   };
 
   return (
