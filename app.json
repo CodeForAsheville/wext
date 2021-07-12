@@ -35,7 +35,7 @@
       "value": "admin-test/"
     },
     "SENTRY_DSN": {
-      "value": ""
+      "value": "https://1ef251418f0f4432b4f3b9dd5c8233ad@o574136.ingest.sentry.io/5724883"
     }
   },
   "formation": {
