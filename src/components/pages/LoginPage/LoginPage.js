@@ -8,7 +8,7 @@ import {
   InputStyled,
   PasswordInputStyled,
   ForgotPassword,
-  PasswordWrapper
+  PasswordWrapper,
 } from './LoginPage.styled';
 import { Button } from '../../elements/Button';
 
@@ -31,7 +31,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
 
-  const handleLogin = async e => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setErrors({});
     try {
@@ -47,7 +47,7 @@ function Login() {
       if (error.response?.data) {
         setErrors({
           ...errors,
-          ...error.response.data
+          ...error.response.data,
         });
       }
     }
@@ -56,13 +56,17 @@ function Login() {
   return (
     <LoginPageStyled>
       <LoginSplash>
+<<<<<<< HEAD
         <SplashLogo src={WEXT_Logo} alt="WNC Expungement Tool logo" />
+=======
+        <SplashLogo src={dearLogo} alt="DEAR logo" />
+>>>>>>> 53bce57d5bde5dee40a5d344f4f7f6077f16bd68
       </LoginSplash>
       <LoginForm onSubmit={handleLogin}>
         <InputStyled
           label="username"
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
           errors={errors.username}
         />
         <PasswordWrapper>
@@ -70,10 +74,10 @@ function Login() {
             label="password"
             type="password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             errors={errors.password}
           />
-          <ForgotPassword href='password_reset/'>Forgot Password?</ForgotPassword>
+          <ForgotPassword href="password_reset/">Forgot Password?</ForgotPassword>
         </PasswordWrapper>
         <AnimatePresence>
           {errors.detail && (

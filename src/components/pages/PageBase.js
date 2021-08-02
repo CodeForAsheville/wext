@@ -6,7 +6,7 @@ import {
   PageBaseStyled,
   PageHeader,
   PageLogo,
-  PageContentWrapper
+  PageContentWrapper,
 } from './PageBase.styled';
 import WEXT_Logo from '../../assets/img/WEXT_logo.jpg';
 import { smallerThanTabletLandscape } from '../../styles/media';
@@ -55,6 +55,7 @@ function PageBase({ children, className, ...props }) {
   return (
     <PageBaseStyled {...props}>
       <PageHeader>
+<<<<<<< HEAD
           <LogoLink href='/'>
             <PageLogo src={WEXT_Logo} alt="WNC Expungement Tool logo" />
           </LogoLink>
@@ -64,6 +65,17 @@ function PageBase({ children, className, ...props }) {
             {adminUrl ? <Link href={adminUrl}>Admin</Link> : null}
             <LogoutLink onClick={handleLogout}>Logout</LogoutLink>
           </LinksGroup>
+=======
+        <LogoLink href="/">
+          <PageLogo src={dearLogo} alt="DEAR logo" />
+        </LogoLink>
+        <LinksGroup>
+          {localStorage.getItem(USER) && <Link href="/">New Petition</Link>}
+          <Link href="/help">Help</Link>
+          {adminUrl ? <Link href={adminUrl}>Admin</Link> : null}
+          <LogoutLink onClick={handleLogout}>Logout</LogoutLink>
+        </LinksGroup>
+>>>>>>> 53bce57d5bde5dee40a5d344f4f7f6077f16bd68
       </PageHeader>
       <PageContentWrapper className={className}>{children}</PageContentWrapper>
     </PageBaseStyled>
