@@ -16,7 +16,7 @@ import { Button } from '../../elements/Button';
 import WEXT_Logo from '../../../assets/img/WEXT_logo.jpg';
 
 // Routing
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 // AJAX
 import Axios from '../../../service/axios';
@@ -30,6 +30,11 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const user = localStorage.getItem(USER);
+
+  if (user) {
+    return <Redirect to="/" />;
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();

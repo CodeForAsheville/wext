@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
-  Link,
+  LinkWrapper,
   LinksGroup,
   PageBaseStyled,
   PageHeader,
@@ -18,9 +18,9 @@ import Axios from '../../service/axios';
 import { USER, CSRF_TOKEN_LS_KEY } from '../../constants/authConstants';
 
 // Router
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-const LogoLink = styled(Link)`
+const LogoLink = styled(LinkWrapper)`
   border: none;
   padding: 0;
   height: 80px;
@@ -32,7 +32,7 @@ const LogoLink = styled(Link)`
   }
 `;
 
-const LogoutLink = styled(Link)`
+const LogoutLink = styled(LinkWrapper)`
   cursor: pointer;
 `;
 
@@ -55,27 +55,27 @@ function PageBase({ children, className, ...props }) {
   return (
     <PageBaseStyled {...props}>
       <PageHeader>
-<<<<<<< HEAD
-          <LogoLink href='/'>
-            <PageLogo src={WEXT_Logo} alt="WNC Expungement Tool logo" />
+          <LogoLink>
+            <Link to='/'>
+              <PageLogo src={WEXT_Logo} alt="WNC Expungement Tool logo" />
+            </Link>
           </LogoLink>
-          <LinksGroup>
-            {localStorage.getItem(USER) && <Link href='/'>New Petition</Link>}
-            <Link href="/help">Help</Link>
-            {adminUrl ? <Link href={adminUrl}>Admin</Link> : null}
-            <LogoutLink onClick={handleLogout}>Logout</LogoutLink>
-          </LinksGroup>
-=======
-        <LogoLink href="/">
-          <PageLogo src={dearLogo} alt="DEAR logo" />
-        </LogoLink>
         <LinksGroup>
-          {localStorage.getItem(USER) && <Link href="/">New Petition</Link>}
-          <Link href="/help">Help</Link>
-          {adminUrl ? <Link href={adminUrl}>Admin</Link> : null}
+          {localStorage.getItem(USER) && (
+            <LinkWrapper>
+              <Link to="/">New Petition</Link>
+            </LinkWrapper>
+          )}
+          <LinkWrapper>
+            <Link to="/help">Help</Link>
+          </LinkWrapper>
+          {adminUrl ? (
+            <LinkWrapper>
+              <a href={adminUrl}>Admin</a>
+            </LinkWrapper>
+          ) : null}
           <LogoutLink onClick={handleLogout}>Logout</LogoutLink>
         </LinksGroup>
->>>>>>> 53bce57d5bde5dee40a5d344f4f7f6077f16bd68
       </PageHeader>
       <PageContentWrapper className={className}>{children}</PageContentWrapper>
     </PageBaseStyled>
