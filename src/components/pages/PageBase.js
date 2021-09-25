@@ -55,10 +55,9 @@ function PageBase({ children, className, ...props }) {
   return (
     <PageBaseStyled {...props}>
       <PageHeader>
-<<<<<<< HEAD
         <LogoLink>
           <Link to="/">
-            <PageLogo src={dearLogo} alt="DEAR logo" />
+            <PageLogo src={WEXT_Logo} alt="WNC Expungement Tool logo" />
           </Link>
         </LogoLink>
         <LinksGroup>
@@ -77,16 +76,6 @@ function PageBase({ children, className, ...props }) {
           ) : null}
           <LogoutLink onClick={handleLogout}>Logout</LogoutLink>
         </LinksGroup>
-=======
-          <LogoLink href='/'>
-            <PageLogo src={WEXT_Logo} alt="WNC Expungement Tool logo" />
-          </LogoLink>
-          <LinksGroup>
-            {localStorage.getItem(USER) && <Link href='/'>New Petition</Link>}
-            {adminUrl ? <Link href={adminUrl}>Admin</Link> : null}
-            <LogoutLink onClick={handleLogout}>Logout</LogoutLink>
-          </LinksGroup>
->>>>>>> replace DEAR logo with WExT logo
       </PageHeader>
       <PageContentWrapper className={className}>{children}</PageContentWrapper>
     </PageBaseStyled>
