@@ -192,6 +192,6 @@ coverage report:
     $ pytest
 
 
-### ~~Sign up for Sentry~~
+### Sign up for Sentry
 
-~~The wext project is now on Sentry. Visit sentry.io and make an account or sign in with Github. Reach out to an existing member for an invite to the project.~~
+The wext project is now on Sentry. Visit sentry.io and make an account or sign in with Github. Reach out to an existing member for an invite to the project.
