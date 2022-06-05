@@ -99,8 +99,8 @@ class OffenseRecordFactory(factory.DjangoModelFactory):
     law = "20-141(J1)"
     code = "4450"
     action = CHARGED
-    severity = "TRAFFIC"
-    description = "SPEEDING(96 mph in a 70 mph zone) "
+    severity = "MISDEMEANOR"
+    description = "RESISTING PUBLIC OFFICER"
 
     class Meta:
         model = OffenseRecord
