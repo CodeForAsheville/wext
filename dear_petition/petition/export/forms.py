@@ -84,9 +84,6 @@ class AOCFormCR287(PetitionForm):
     Petition and Orders of Expunction Under G.S. 15A-146(a) and G.S. 15A-146(a1) (Charge(s) Dismissed)
     https://www.nccourts.gov/assets/documents/forms/cr287.pdf
     """
-
-    MULTIPLE_FILE_NO_MSG = "Multiple - See Below"
-
     def build_form_context(self):
         self.map_file_no()
         self.map_header()
@@ -108,14 +105,11 @@ class AOCFormCR287(PetitionForm):
             self.data["Superior"] = Checkbox("")
 
     def map_file_no(self):
-        if self.petition.offense_records.count() > 1:
-            self.data["ConsJdgmntFileNum"] = self.MULTIPLE_FILE_NO_MSG
-        else:
-            offense_record = self.get_most_recent_record()
-            if offense_record:
-                self.data[
-                    "ConsJdgmntFileNum"
-                ] = offense_record.offense.ciprs_record.file_no
+        offense_record = self.get_most_recent_record()
+        if offense_record:
+            self.data[
+                "ConsJdgmntFileNum"
+            ] = offense_record.offense.ciprs_record.file_no
 
     def map_petitioner(self):
         self.data["PetitionerName"] = self.extra.get("name_petitioner")  # AOC-288
