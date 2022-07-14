@@ -51,5 +51,9 @@ class Writer:
             ):
                 key = annotation[self.ANNOT_FIELD_KEY][1:-1]
                 if key in self.data:
-                    annotation.update(pdfrw.PdfDict(**self.data[key]))
+                    fields = self.data[key]
+                    for key, value in fields.items():
+                        if key == 'AS':
+                            fields = {key: pdfrw.PdfName(value)}
+                    annotation.update(pdfrw.PdfDict(**fields))
         pdfrw.PdfWriter().write(self.output_path, self.template)
