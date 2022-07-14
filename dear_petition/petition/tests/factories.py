@@ -96,11 +96,11 @@ class OffenseFactory(factory.DjangoModelFactory):
 
 class OffenseRecordFactory(factory.DjangoModelFactory):
     offense = factory.SubFactory(OffenseFactory)
-    law = "20-141(J1)"
-    code = "4450"
+    law = "G.S. 14-223"
+    code = "5310"
     action = CHARGED
-    severity = "TRAFFIC"
-    description = "SPEEDING(96 mph in a 70 mph zone) "
+    severity = "MISDEMEANOR"
+    description = "RESISTING PUBLIC OFFICER"
 
     class Meta:
         model = OffenseRecord
