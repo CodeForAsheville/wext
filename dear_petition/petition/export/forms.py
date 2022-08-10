@@ -64,6 +64,9 @@ class PetitionForm(metaclass=abc.ABCMeta):
 
         return qs
 
+    def get_first_record(self):
+        return self.get_ordered_offense_records().first()
+
     def get_most_recent_record(self):
         return self.get_ordered_offense_records().last()
 
@@ -105,7 +108,7 @@ class AOCFormCR287(PetitionForm):
             self.data["Superior"] = Checkbox("")
 
     def map_file_no(self):
-        offense_record = self.get_most_recent_record()
+        offense_record = self.get_first_record()
         if offense_record:
             self.data[
                 "ConsJdgmntFileNum"
